@@ -42,4 +42,4 @@ def daily():
     return render_template('daily.html', quote=quote)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
