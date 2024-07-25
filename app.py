@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 def get_daily_quote():
-    url = 'https://zenquotes.io/api/daily'
+    url = 'https://zenquotes.io/api/today'
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
@@ -16,7 +16,7 @@ def get_daily_quote():
         return 'Failed to retrieve quote'
     
 def get_any_quote():
-    url = 'https://zenquotes.io/api/quotes'
+    url = 'https://zenquotes.io/api/random'
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
@@ -29,7 +29,7 @@ def get_any_quote():
 
 @app.route('/')
 def home():
-    render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/quotes')
 def quotes():
