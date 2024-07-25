@@ -29,13 +29,17 @@ def get_any_quote():
 
 @app.route('/')
 def home():
-    quote = get_daily_quote()
-    return render_template('index.html', quote=quote)
+    render_template('index.html')
 
 @app.route('/quotes')
 def quotes():
     any_quote = get_any_quote()
     return render_template('quotes.html', quote=any_quote)
+
+@app.route('/daily')
+def daily():
+    quote = get_daily_quote()
+    return render_template('daily.html', quote=quote)
 
 if __name__ == '__main__':
     app.run(debug=True)
